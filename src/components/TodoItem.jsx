@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useTodo } from "../context/TodoContext";
 
 const TodoItem = ({todo}) =>{
-    const {deleteTodo,updateTodo}= useTodo;
+    const {deleteTodo,updateTodo}= useTodo();
     const [edit,setEdit]=useState(false)
     const [text,setText]=useState(todo.text)
 

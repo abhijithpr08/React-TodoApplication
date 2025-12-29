@@ -1,5 +1,5 @@
 const Header=()=>{
-    <h1>
+    <h1 className="font-bold">
         Todo App
     </h1>
 }
