@@ -5,11 +5,13 @@ const TodoList =()=>{
     const {todos} = useTodo()
 
     return(
-        <ul>
+        <div className="flex justify-center">
+            <ul className="w-100 space-y-1">
             {todos.map(todo=>(
                 <TodoItem key={todo.id} todo={todo}/>
             ))}
         </ul>
+        </div>
     )
 }
 

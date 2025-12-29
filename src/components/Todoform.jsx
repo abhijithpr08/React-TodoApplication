@@ -12,9 +12,9 @@ const TodoForm = () => {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
-            <input value={text} onChange={(e) => setText(e.target.value)} />
-            <button>Add</button>
+        <form onSubmit={handleSubmit} className="flex gap-1 justify-center mb-30">
+            <input className="border h-8" value={text} onChange={(e) => setText(e.target.value)} />
+            <button className="bg-blue-500 p-1 w-20">Add</button>
         </form>
     )
 }

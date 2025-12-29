@@ -7,23 +7,23 @@ const TodoItem = ({todo}) =>{
     const [text,setText]=useState(todo.text)
 
     return (
-        <li>
-            {edit ?(<input value={text} onChange={(e)=>setText(e.target.value)}/>)
+        <li className="flex justify-between items-center border p-2 rounded">
+            {edit ?(<input className="border p-1" value={text} onChange={(e)=>setText(e.target.value)}/>)
             :
-            (<span>{todo.text}</span>)}
+            (<span className="w-30">{todo.text}</span>)}
 
-            <div>
+            <div className="flex gap-2">
                 {
-                    edit ? ( <button onClick={()=>{
+                    edit ? ( <button className="bg-green-500 p-1 w-20" onClick={()=>{
                     updateTodo(todo.id, text);
                     setEdit(false);
                 }}>SAVE</button>)
                 :
-                (<button onClick={() => setEdit(true)}
+                (<button className="bg-blue-500 p-1 w-20" onClick={() => setEdit(true)}
                     
                     >EDIT</button>)
                 }
-                <button onClick={()=> deleteTodo(todo.id)}>
+                <button onClick={()=> deleteTodo(todo.id)} className="bg-red-500 p-1 w-20">
                 DELETE    
                 </button>
             </div>
