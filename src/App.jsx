@@ -1,12 +1,17 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import Header from './components/Header'
-import Footer from './components/Footer'
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import TodoList from "./components/TodoList";
+import TodoForm from "./components/Todoform";
 
-const App = ()=>{
+const App = () => {
+  return (
+    <div>
+      <Header />
+      <TodoForm />
+      <TodoList />
+      <Footer />
+    </div>
+  );
+};
 
-}
-
-export default App
+export default App;
