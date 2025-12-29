@@ -23,5 +23,11 @@ export const TodoProvider = ({Children})=>{
         setTodo(todos.map(todo=>todo.id === id ? {...todo, text : newText}:todo))
     }
 
-    
+    return(
+        <TodoContext.Provider value={{todos,addTodo,updateTodo,deleteTodo}}>
+            {Children}
+        </TodoContext.Provider>
+    )
 }
+
+export const useTodo = ()=> useContext(TodoContext)
