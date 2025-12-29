@@ -1,33 +1,33 @@
-import { createContext,useContext,useState,useEffect, Children } from "react";
+import { createContext, useContext, useState, useEffect } from "react";
 
 const TodoContext = createContext();
 
-export const TodoProvider = ({Children})=>{
-    const [todos,setTodo]=useState(
+export const TodoProvider = ({ children }) => {
+    const [todos, setTodo] = useState(
         JSON.parse(localStorage.getItem("todos")) || []
     )
 
-    useEffect(()=>{
-        localStorage.setItem("todos",JSON.stringify(todos))
-    },[todos])
+    useEffect(() => {
+        localStorage.setItem("todos", JSON.stringify(todos))
+    }, [todos])
 
-    const addTodo = (text)=>{
-        setTodo([...todos, {id : Date.now(), text}])
+    const addTodo = (text) => {
+        setTodo([...todos, { id: Date.now(), text }])
     }
 
-    const deleteTodo = (id)=>{
-        setTodo(todos.filter(todo=>todo.id !== id))
+    const deleteTodo = (id) => {
+        setTodo(todos.filter(todo => todo.id !== id))
     }
 
-    const updateTodo=(id,newText)=>{
-        setTodo(todos.map(todo=>todo.id === id ? {...todo, text : newText}:todo))
+    const updateTodo = (id, newText) => {
+        setTodo(todos.map(todo => todo.id === id ? { ...todo, text: newText } : todo))
     }
 
-    return(
-        <TodoContext.Provider value={{todos,addTodo,updateTodo,deleteTodo}}>
-            {Children}
+    return (
+        <TodoContext.Provider value={{ todos, addTodo, updateTodo, deleteTodo }}>
+            {children}
         </TodoContext.Provider>
     )
 }
 
-export const useTodo = ()=> useContext(TodoContext)
+export const useTodo = () => useContext(TodoContext)
