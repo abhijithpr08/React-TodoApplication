@@ -14,4 +14,8 @@ export const TodoProvider = ({Children})=>{
     const addTodo = (text)=>{
         setTodo([...todos, {id : Date.now(), text}])
     }
+
+    const deleteTodo = (id)=>{
+        setTodo(todos.filter(todo=>todo.id !== id))
+    }
 }
