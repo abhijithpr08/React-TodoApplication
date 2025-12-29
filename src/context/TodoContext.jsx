@@ -18,4 +18,10 @@ export const TodoProvider = ({Children})=>{
     const deleteTodo = (id)=>{
         setTodo(todos.filter(todo=>todo.id !== id))
     }
+
+    const updateTodo=(id,newText)=>{
+        setTodo(todos.map(todo=>todo.id === id ? {...todo, text : newText}:todo))
+    }
+
+    
 }
